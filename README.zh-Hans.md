@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/icon.png" width="128" alt="Beacon icon">
+</p>
+
 <h1 align="center">Beacon</h1>
 
 <p align="center">
