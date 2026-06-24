@@ -75,8 +75,15 @@ Codex ──/responses──▶  Beacon 桥(localhost)  ──/chat/completions�
 
 ## 安装
 
+### 直接下载(推荐)
+
+从 [**Releases**](https://github.com/casperkwok/Beacon/releases/latest) 下载**已签名+公证**的版本,
+解压后把 **Beacon.app** 拖进 `/Applications` 即可 —— 双击直接打开,无 Gatekeeper 警告。
+
+### 从源码构建
+
 Beacon 用 [XcodeGen](https://github.com/yonsm/XcodeGen) 生成工程,
-[TOMLKit](https://github.com/LebJe/TOMLKit) 写配置,从源码构建:
+[TOMLKit](https://github.com/LebJe/TOMLKit) 写配置:
 
 ```bash
 brew install xcodegen     # 如未安装
@@ -99,8 +106,6 @@ Beacon 以非沙盒方式运行,以便读写 `~/.codex/config.toml` 并运行本
 
 **Codex 里的 `Model metadata for … not found` 警告** —— Codex 只内置了 OpenAI 自家模型的
 元数据,所以对任何自定义模型 id 都会提示。它是 cosmetic 的,模型照常工作,无法干净消除。
-
-**Gatekeeper 拦截** —— 目前 Beacon 从源码构建。已签名/公证的发行版以后可能会有。
 
 ## 协议
 

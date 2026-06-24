@@ -79,8 +79,16 @@ separately with `codex login`). Native providers (OpenAI / Azure) skip the bridg
 
 ## Install
 
-Beacon is built from source with [XcodeGen](https://github.com/yonsm/XcodeGen)
-and [TOMLKit](https://github.com/LebJe/TOMLKit).
+### Download (recommended)
+
+Grab the latest **signed & notarized** build from the
+[**Releases**](https://github.com/casperkwok/Beacon/releases/latest) page — unzip
+and move **Beacon.app** to `/Applications`. It opens with no Gatekeeper warnings.
+
+### Build from source
+
+Beacon uses [XcodeGen](https://github.com/yonsm/XcodeGen) and
+[TOMLKit](https://github.com/LebJe/TOMLKit).
 
 ```bash
 brew install xcodegen     # if needed
@@ -106,9 +114,6 @@ local bridge.
 **`Model metadata for … not found` warning in Codex** — Codex only ships metadata
 for OpenAI's own models, so it shows this for any custom model id. It's cosmetic;
 the model works fine. There's no clean way to suppress it for arbitrary models.
-
-**Gatekeeper blocks the app** — for now Beacon is built from source. Signed,
-notarized release builds may come later.
 
 ## License
 
