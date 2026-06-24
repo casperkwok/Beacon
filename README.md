@@ -1,6 +1,10 @@
 <h1 align="center">Beacon</h1>
 
 <p align="center">
+  <b>English</b> | <a href="README.zh-Hans.md">简体中文</a>
+</p>
+
+<p align="center">
   Run <b>OpenAI Codex CLI</b> on DeepSeek, GLM, Kimi, Qwen &amp; more — one-click provider
   switching with a built-in Chat&nbsp;↔&nbsp;Responses bridge.
 </p>
