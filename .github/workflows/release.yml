@@ -112,7 +112,8 @@ jobs:
           SIGINFO="$("$RUNNER_TEMP"/sparkle/bin/sign_update "$ZIP" --ed-key-file "$RUNNER_TEMP/sparkle_key")"
           rm -f "$RUNNER_TEMP/sparkle_key"
           URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/${GITHUB_REF_NAME}/${ZIP}"
-          git checkout -f main
+          git fetch origin main
+          git checkout -B main origin/main
           python3 .github/update_appcast.py "${GITHUB_REF_NAME#v}" "$URL" "$SIGINFO"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
