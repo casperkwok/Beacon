@@ -26,5 +26,13 @@
 	<true/>
 	<key>NSHumanReadableCopyright</key>
 	<string>© 2026 casperkwok. Licensed under Apache-2.0.</string>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
+	<key>SUFeedURL</key>
+	<string>https://raw.githubusercontent.com/casperkwok/Beacon/main/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>GD9mNBQnjspJBfKb5chqAVYm9J2rmx0ypXQc1gfJFsU=</string>
+	<key>SUScheduledCheckInterval</key>
+	<integer>86400</integer>
 </dict>
 </plist>

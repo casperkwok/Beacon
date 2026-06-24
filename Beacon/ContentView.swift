@@ -86,24 +86,14 @@ struct ContentView: View {
         }
     }
 
-    @State private var updater = UpdateChecker.shared
-
     private var footer: some View {
         HStack(spacing: 8) {
-            if updater.available {
-                Button(action: { if let u = updater.releaseURL { NSWorkspace.shared.open(u) } }) {
-                    HStack(spacing: 3) {
-                        Image(systemName: "arrow.up.circle.fill")
-                        Text("v\(updater.latestVersion) available")
-                    }
-                    .font(.system(size: 11, weight: .semibold)).foregroundStyle(Theme.accent)
-                }
-                .buttonStyle(.plain)
-                .help("A newer version is available on GitHub")
-            } else {
-                Text("Beacon").font(.system(size: 11, weight: .semibold)).foregroundStyle(.secondary)
+            Text("Beacon").font(.system(size: 11, weight: .semibold)).foregroundStyle(.secondary)
+            Button(action: { Updater.shared.checkForUpdates() }) {
                 Text("v\(appVersion)").font(.system(size: 11)).foregroundStyle(.tertiary)
             }
+            .buttonStyle(.plain)
+            .help("Check for updates")
             Spacer()
             Menu {
                 ForEach(ProviderTemplate.all) { t in

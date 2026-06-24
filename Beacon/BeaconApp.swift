@@ -28,6 +28,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             ConfigManager.shared.activate(active)
         }
 
-        UpdateChecker.shared.check()
+        // Start Sparkle (schedules background update checks per Info.plist settings).
+        _ = Updater.shared
     }
 }

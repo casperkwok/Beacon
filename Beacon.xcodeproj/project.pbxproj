@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2BA9AAFAC113B10393E5B9AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDA423D15DB04D3BFADE6EE /* ContentView.swift */; };
+		35FDE87220E14388D0FEFA0C /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = BDA9308BFFB6198A6DC86CDB /* Sparkle */; };
 		3B570951B511E1B0691FF9E5 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A818DC41583E961345692 /* StatusBarController.swift */; };
 		6113729A2CF7F1A08CD03DF1 /* ProviderStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2B100FE46B0D8D7A594A8 /* ProviderStore.swift */; };
 		8BCF0ED35FE6225083D01D1C /* UpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E685C94168B23CE1DBB9F /* UpdateChecker.swift */; };
@@ -46,6 +47,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF5EA2527981FD869EF4881E /* TOMLKit in Frameworks */,
+				35FDE87220E14388D0FEFA0C /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +117,7 @@
 			name = Beacon;
 			packageProductDependencies = (
 				6BF962F548EB8D0630E3BFFB /* TOMLKit */,
+				BDA9308BFFB6198A6DC86CDB /* Sparkle */,
 			);
 			productName = Beacon;
 			productReference = F3F190BF934C72E1601D3F2B /* Beacon.app */;
@@ -145,6 +148,7 @@
 			mainGroup = 7D305C7354F60FF4F0BA1A1C;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				3CC158D7C43D1A3E267B94B3 /* XCRemoteSwiftPackageReference "Sparkle" */,
 				CACAD4E95F2F9B0A7D425F50 /* XCRemoteSwiftPackageReference "TOMLKit" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -379,6 +383,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3CC158D7C43D1A3E267B94B3 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.0;
+			};
+		};
 		CACAD4E95F2F9B0A7D425F50 /* XCRemoteSwiftPackageReference "TOMLKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/LebJe/TOMLKit";
@@ -394,6 +406,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CACAD4E95F2F9B0A7D425F50 /* XCRemoteSwiftPackageReference "TOMLKit" */;
 			productName = TOMLKit;
+		};
+		BDA9308BFFB6198A6DC86CDB /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3CC158D7C43D1A3E267B94B3 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
