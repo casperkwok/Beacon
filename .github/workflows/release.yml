@@ -61,14 +61,13 @@ jobs:
         run: |
           APP="build/Build/Products/Release/Beacon.app"
           FW="$APP/Contents/Frameworks/Sparkle.framework"
-          ID="Developer ID Application"
-          SIGN="codesign --force --options runtime --timestamp --sign $ID"
+          sign() { codesign --force --options runtime --timestamp --sign "Developer ID Application" "$1"; }
           # Inside-out: nested XPC services, helper tools, then the framework, then the app.
-          find "$FW" -name "*.xpc" -print0 | while IFS= read -r -d '' xpc; do $SIGN "$xpc"; done
-          [ -e "$FW/Versions/Current/Autoupdate" ]  && $SIGN "$FW/Versions/Current/Autoupdate"
-          [ -e "$FW/Versions/Current/Updater.app" ] && $SIGN "$FW/Versions/Current/Updater.app"
-          $SIGN "$FW"
-          $SIGN "$APP"
+          find "$FW" -name "*.xpc" -print0 | while IFS= read -r -d '' xpc; do sign "$xpc"; done
+          [ -e "$FW/Versions/Current/Autoupdate" ]  && sign "$FW/Versions/Current/Autoupdate"
+          [ -e "$FW/Versions/Current/Updater.app" ] && sign "$FW/Versions/Current/Updater.app"
+          sign "$FW"
+          sign "$APP"
           codesign --verify --deep --strict --verbose=2 "$APP"
 
       - name: Notarize & staple
