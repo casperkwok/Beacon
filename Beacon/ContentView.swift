@@ -131,8 +131,13 @@ struct ContentView: View {
     // MARK: - Actions
 
     private func activate(_ p: Provider?) {
+        let previous = store.activeProvider
         store.setActive(p)
-        if let p { config.activate(p) } else { config.activateDefault() }
+        let ok = (p != nil) ? config.activate(p!) : config.activateDefault()
+        if !ok {
+            store.setActive(previous)   // roll back so the UI reflects the real state
+            presentBridgeFailureAlert()
+        }
     }
     private func add(_ p: Provider) {
         store.add(p); screen = .list
@@ -142,7 +147,7 @@ struct ContentView: View {
         // New providers coming from the + template menu aren't in the store yet.
         if store.providers.contains(where: { $0.id == p.id }) {
             store.update(p)
-            if wasActive { config.activate(p) }
+            if wasActive && !config.activate(p) { presentBridgeFailureAlert() }
         } else {
             store.add(p)
         }
@@ -154,6 +159,17 @@ struct ContentView: View {
         if wasActive { activate(nil) }
         screen = .list
     }
+}
+
+/// Shown when activation can't bring up the local translation bridge (loopback port bind failed).
+@MainActor
+func presentBridgeFailureAlert() {
+    let alert = NSAlert()
+    alert.messageText = "Couldn't start the local bridge"
+    alert.informativeText = "Beacon couldn't open a local port for the Chat ↔ Responses bridge, so the provider wasn't activated. Try again — if it keeps failing, another app may be blocking loopback connections."
+    alert.alertStyle = .warning
+    alert.addButton(withTitle: "OK")
+    alert.runModal()
 }
 
 // MARK: - Logo / monogram avatar

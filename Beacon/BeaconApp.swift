@@ -25,7 +25,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         // If the active provider uses the bridge, bring the proxy back up (port changes per launch).
         if let active = ProviderStore.shared.activeProvider, active.bridged {
-            ConfigManager.shared.activate(active)
+            if !ConfigManager.shared.activate(active) {
+                presentBridgeFailureAlert()
+            }
         }
 
         // Start Sparkle (schedules background update checks per Info.plist settings).

@@ -38,9 +38,12 @@ final class ConfigManager {
 
         var effectiveBaseURL = provider.baseURL
         if provider.bridged {
-            if let port = TranslationProxy.shared.start(upstream: provider.baseURL, apiKey: provider.apiKey, model: provider.model) {
-                effectiveBaseURL = "http://127.0.0.1:\(port)/v1"
+            // If the bridge can't bind a loopback port, bail out rather than writing a
+            // broken config (upstream URL + wire_api=responses + fake token → 404s in Codex).
+            guard let port = TranslationProxy.shared.start(upstream: provider.baseURL, apiKey: provider.apiKey, model: provider.model) else {
+                return false
             }
+            effectiveBaseURL = "http://127.0.0.1:\(port)/v1"
         } else {
             TranslationProxy.shared.stop()
         }
