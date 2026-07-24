@@ -3,6 +3,14 @@
   <channel>
     <title>Beacon</title>
     <item>
+      <title>0.1.4</title>
+      <sparkle:version>0.1.4</sparkle:version>
+      <sparkle:shortVersionString>0.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Fri, 24 Jul 2026 10:02:58 +0000</pubDate>
+      <enclosure url="https://github.com/casperkwok/Beacon/releases/download/v0.1.4/Beacon-v0.1.4.zip" sparkle:edSignature="1w0FxiS0IRkUxLbwYRGaK7qT+qSKNFzHrv3qXhO+bQebeCSK4Ia/3C7e4EkI6CV6pusBbirNKGydD527T+7VCA==" length="1785826" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>0.1.3</title>
       <sparkle:version>0.1.3</sparkle:version>
       <sparkle:shortVersionString>0.1.3</sparkle:shortVersionString>
